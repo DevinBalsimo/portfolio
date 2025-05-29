@@ -1,0 +1,16 @@
+[
+  {
+    "file": "first-post.md",
+    "title": "My First Blog Post",
+    "date": "2025-05-29",
+    "tags": ["blog", "intro"],
+    "description": "This is a test post for my markdown blog."
+  },
+  {
+    "file": "another-post.md",
+    "title": "Another Post",
+    "date": "2025-05-25",
+    "tags": ["blog"],
+    "description": "A follow-up post."
+  }
+]
