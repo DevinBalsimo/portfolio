@@ -1,0 +1,22 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 650px;
+  margin: 2rem auto;
+  background: #f9f9f9;
+  color: #222;
+}
+nav a {
+  text-decoration: none;
+  color: #0070f3;
+  font-weight: bold;
+}
+#blog-content {
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px #0001;
+  margin-top: 1.5rem;
+}
+h1, h2, h3 {
+  color: #333;
+}
