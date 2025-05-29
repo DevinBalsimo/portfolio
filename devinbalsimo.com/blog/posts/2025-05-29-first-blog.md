@@ -1,12 +1,12 @@
 ---
-title: "My vision moving forward"
-date: 2025-05-29;
-author: Devin Balsimo
-tags: [tag1, tag2, tag3]
-description: "A short summary of your post for SEO and previews."
-cover_image: "/images/path-to-cover.jpg"
-draft: false
-reading_time: "X min read"
+
+file: "2025-05-29-first-blog.md",
+title: "My First Blog Post",
+date: "2025-05-29",
+tags: ["crypto", "tech", "self-taught", "learn", "coding"],
+description: "I'd like this first blog post to highlight who I am, what I am setting out to 
+accomplish, and how I plan on getting there. I want to show you how you can benefit from following 
+my journey, how to use the tools I discover along the way, and connect with me or get involved in different ways."
 ---
 
 # Keeping the Journey Organized
