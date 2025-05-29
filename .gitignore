@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+build/
+
+# Hugo/Astro
+public/
+.cache/
+astro/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Misc
+*.log
+*.swp
