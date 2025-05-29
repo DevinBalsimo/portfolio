@@ -1,6 +1,5 @@
-// Helper function to extract YAML frontmatter and markdown content
+// Helper to extract frontmatter (for preview if needed)
 function parseMarkdownWithFrontmatter(md) {
-  // Match frontmatter between --- and ---
   const frontmatterRegex = /^---\s*\n([\s\S]+?)\n---\s*\n?/;
   const match = md.match(frontmatterRegex);
 
@@ -8,60 +7,98 @@ function parseMarkdownWithFrontmatter(md) {
   let content = md;
 
   if (match) {
-    // Extract frontmatter and remove it from content
     const yaml = match[1];
     content = md.slice(match[0].length);
-
-    // Parse YAML (works for simple key: value pairs)
     yaml.split('\n').forEach(line => {
       const [key, ...rest] = line.split(':');
       if (key && rest.length > 0) {
         let value = rest.join(':').trim();
-        // Remove wrapping quotes if present
         value = value.replace(/^["']|["']$/g, '');
         meta[key.trim()] = value;
       }
     });
   }
-
   return { meta, content };
 }
 
-// Choose which post to load (could enhance to make this dynamic)
-const postFile = "2025-05-29-first-blog.md"; // Or get from URL, etc.
+// Get 'post' parameter from URL
+const urlParams = new URLSearchParams(window.location.search);
+const postFile = urlParams.get('post');
 
-fetch(`posts/${postFile}`)
-  .then(response => {
-    if (!response.ok) throw new Error("File not found");
-    return response.text();
-  })
-  .then(md => {
-    const { meta, content } = parseMarkdownWithFrontmatter(md);
+const postListEl = document.getElementById('post-list');
+const blogContentEl = document.getElementById('blog-content');
+const searchInput = document.getElementById('search');
 
-    // Set document title and h1 from frontmatter
-    if (meta.title) {
-      document.title = meta.title + " | My Blog";
-      document.querySelector('h1').textContent = meta.title;
-    }
+// 1. Fetch posts.json and render list
+let allPosts = [];
+fetch('posts/posts.json')
+  .then(resp => resp.json())
+  .then(posts => {
+    allPosts = posts;
+    renderPostList(posts);
 
-    // Show meta info (date, tags, etc.)
-    let metaHtml = '';
-    if (meta.date) {
-      metaHtml += `<div class="meta-date">${meta.date}</div>`;
+    // If a post is specified in URL, load it
+    if (postFile) {
+      loadPost(postFile);
     }
-    if (meta.tags) {
-      metaHtml += `<div class="meta-tags">Tags: ${meta.tags}</div>`;
-    }
-    if (meta.description) {
-      metaHtml += `<div class="meta-description">${meta.description}</div>`;
-    }
-
-    // Render meta info and markdown content
-    document.getElementById('blog-content').innerHTML =
-      metaHtml + marked.parse(content);
-  })
-  .catch(err => {
-    document.getElementById('blog-content').innerHTML =
-      "<p>Failed to load post.</p>";
-    console.error(err);
   });
+
+// 2. Render post list
+function renderPostList(posts) {
+  postListEl.innerHTML = '';
+  posts.forEach(post => {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = `?post=${encodeURIComponent(post.file)}`;
+    a.textContent = post.title;
+    li.appendChild(a);
+    if (post.date) {
+      const dateSpan = document.createElement('span');
+      dateSpan.className = 'meta-date';
+      dateSpan.textContent = ' — ' + post.date;
+      li.appendChild(dateSpan);
+    }
+    postListEl.appendChild(li);
+  });
+}
+
+// 3. Load and render a post
+function loadPost(filename) {
+  fetch(`posts/${filename}`)
+    .then(response => {
+      if (!response.ok) throw new Error("File not found");
+      return response.text();
+    })
+    .then(md => {
+      const { meta, content } = parseMarkdownWithFrontmatter(md);
+      let metaHtml = '';
+      if (meta.date) metaHtml += `<div class="meta-date">${meta.date}</div>`;
+      if (meta.tags) metaHtml += `<div class="meta-tags">Tags: ${meta.tags}</div>`;
+      if (meta.description) metaHtml += `<div class="meta-description">${meta.description}</div>`;
+      blogContentEl.innerHTML = `<a href="index.html">&larr; Back to all posts</a><hr>` +
+        metaHtml + marked.parse(content);
+      document.title = (meta.title || "Blog Post") + " | My Blog";
+    })
+    .catch(err => {
+      blogContentEl.innerHTML = "<p>Post not found.</p>";
+      document.title = "Blog Post | My Blog";
+      console.error(err);
+    });
+}
+
+// 4. Add search functionality
+searchInput.addEventListener('input', function () {
+  const query = this.value.toLowerCase();
+  const filtered = allPosts.filter(post =>
+    post.title.toLowerCase().includes(query) ||
+    (post.description && post.description.toLowerCase().includes(query)) ||
+    (post.tags && post.tags.join(',').toLowerCase().includes(query))
+  );
+  renderPostList(filtered);
+});
+
+// 5. If on a post, hide post list and search
+if (postFile) {
+  postListEl.style.display = 'none';
+  searchInput.style.display = 'none';
+}

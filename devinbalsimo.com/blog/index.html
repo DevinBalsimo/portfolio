@@ -2,18 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Devin Balsimo's Blog</title>
+  <title>My Markdown Blog</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <nav>
     <a href="../index.html">← Back to Portfolio</a>
   </nav>
-  <h1>Blog Post</h1>
-  <div id="blog-content">
-    Loading...
-  </div>
-  <!-- Load marked.js from CDN -->
+  <h1>Blog</h1>
+  <input type="text" id="search" placeholder="Search posts...">
+  <ul id="post-list"></ul>
+  <div id="blog-content"></div>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script src="script.js"></script>
 </body>
