@@ -32,7 +32,7 @@ Briefly introduce the topic and the purpose of this post.
 
 ## Priorities
 
-Dive into your topic here. Use subsections as needed.
+Crypto Programming: - 
 
 ## Projects
 
