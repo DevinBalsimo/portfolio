@@ -1,7 +1,7 @@
 ---
-title: "Your Blog Post Title"
-date: YYYY-MM-DD
-author: "Your Name"
+title: "My vision moving forward"
+date: 2025-05-29;
+author: Devin Balsimo
 tags: [tag1, tag2, tag3]
 description: "A short summary of your post for SEO and previews."
 cover_image: "/images/path-to-cover.jpg"
@@ -9,26 +9,19 @@ draft: false
 reading_time: "X min read"
 ---
 
-# Your Blog Post Title
+# Keeping the Journey Organized
 
-*By {{ author }} on {{ date }} • {{ reading_time }}*
-
-![Cover Image]({{ cover_image }})
 
 ---
 
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Background & Context](#background--context)
-- [Main Content](#main-content)
-  - [Subsection 1](#subsection-1)
-  - [Subsection 2](#subsection-2)
-- [Code Example](#code-example)
-- [Images & Media](#images--media)
-- [Key Takeaways](#key-takeaways)
-- [Further Reading](#further-reading)
-- [Call to Action](#call-to-action)
+- [Priorities](#priorities)
+- [Projects](#projects)
+- [Resources](#resources)
+  - [Links](#links)
+  - [Glossary](#glossary)
 
 ---
 
@@ -36,22 +29,26 @@ reading_time: "X min read"
 
 Briefly introduce the topic and the purpose of this post.
 
-## Background & Context
 
-Provide any necessary background information or context for your readers.
-
-## Main Content
+## Priorities
 
 Dive into your topic here. Use subsections as needed.
 
-### Subsection 1
+## Projects
 
 Details about part one of your topic.
 
-### Subsection 2
+## Resources
 
 Details about part two.
 
+### Links
+
+### Glossary
+
+
+---
+<!-- 
 ## Code Example
 
 ```js
@@ -79,4 +76,4 @@ Invite readers to comment, share, subscribe, or check out other content.
 
 ---
 
-*Thanks for reading! If you enjoyed this post, follow me on [Twitter](https://twitter.com/yourhandle) or [GitHub](https://github.com/yourhandle) for more!*
+*Thanks for reading! If you enjoyed this post, follow me on [Twitter](https://twitter.com/yourhandle) or [GitHub](https://github.com/yourhandle) for more!* -->
