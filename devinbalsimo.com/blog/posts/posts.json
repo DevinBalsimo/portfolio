@@ -15,16 +15,11 @@
   },
   {
     "file": "2025-05-29-first-blog.md",
-    "title": "Hello World\",",
-    "date": "2025-05-29\",",
+    "title": "Hello World",
+    "date": "2025-05-29",
     "tags": [
-      "\"crypto\"",
-      "\"tech\"",
-      "\"self-taught\"",
-      "\"learn\"",
-      "\"coding\"]",
       ""
     ],
-    "description": "I'd like this first blog post to highlight who I am, what I am setting out to"
+    "description": "|"
   }
 ]
