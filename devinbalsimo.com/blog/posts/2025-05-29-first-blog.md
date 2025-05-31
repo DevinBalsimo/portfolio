@@ -1,12 +1,18 @@
 ---
 
-file: "2025-05-29-first-blog.md",
-title: "Hello World",
-date: "2025-05-29",
-tags: ["crypto", "tech", "self-taught", "learn", "coding"],
-description: "I'd like this first blog post to highlight who I am, what I am setting out to 
+file: "2025-05-29-first-blog.md"
+title: "Hello World"
+date: "2025-05-29"
+tags: 
+  - crypto
+  - tech
+  - self-taught
+  - learn
+  - coding
+description: |
+I'd like this first blog post to highlight who I am, what I am setting out to 
 accomplish, and how I plan on getting there. I want to show you how you can benefit from following 
-my journey, how to use the tools I discover along the way, and connect with me or get involved in different ways."
+my journey, how to use the tools I discover along the way, and connect with me or get involved in different ways.
 ---
 
 # Hello World
