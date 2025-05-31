@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Directory containing posts
-const POSTS_DIR = path.join(__dirname, '../blog/posts');
+const POSTS_DIR = path.join(__dirname, '../devinbalsimo.com/blog/posts');
 const OUTPUT_FILE = path.join(POSTS_DIR, 'posts.json');
 
 function extractFrontmatter(content) {
