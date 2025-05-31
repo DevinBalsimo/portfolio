@@ -2,7 +2,7 @@
 file: "2025-05-29-progress-update.md"
 title: "Portfolio Build - Day One Progress"
 date: "2025-05-29"
-tags: 
+tags:
   - JSON
   - YAML
   - JS
